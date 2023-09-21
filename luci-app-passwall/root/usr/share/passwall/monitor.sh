@@ -27,7 +27,8 @@ ENABLED=$(config_t_get global_delay start_daemon 0)
 sleep 58s
 while [ "$ENABLED" -eq 1 ]; do
 	[ -f "$LOCK_FILE" ] && {
-		sleep 6s
+		rm -f $LOCK_FILE
+		sleep 10s
 		continue
 	}
 	touch $LOCK_FILE
