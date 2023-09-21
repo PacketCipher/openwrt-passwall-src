@@ -4,8 +4,8 @@ A commonly used proxy toolchain for Openwrt LuCI Application.
 ## How to use
 1. add new line to openwrt feeds
 ```
-echo "src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main" >> "feeds.conf.default"
-echo "src-git passwall https://github.com/xiaorouji/openwrt-passwall.git;main" >> "feeds.conf.default"
+echo "src-git passwall_packages https://github.com/packetcipher/openwrt-passwall-src-packages.git;main" >> "feeds.conf.default"
+echo "src-git passwall https://github.com/packetcipher/openwrt-passwall-src.git;main" >> "feeds.conf.default"
 ```
 2. pull upstream commits
 ```

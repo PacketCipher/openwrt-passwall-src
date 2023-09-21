@@ -19,7 +19,7 @@ on:
 env:
   TZ: Asia/Shanghai
   passwall: ${{ github.repository }}
-  packages: xiaorouji/openwrt-passwall-packages
+  packages: packetcipher/openwrt-passwall-src-packages
 
 
 jobs:
