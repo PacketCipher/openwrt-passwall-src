@@ -40,12 +40,17 @@ while [ "$ENABLED" -eq 1 ]; do
 		if ! echo "$cmd_check" | grep -q "url_test"; then
 			icount=$(pgrep -f "$(echo $cmd_check)" | wc -l)
 			if [ $icount = 0 ]; then
-				echo "${cmd_check} Crashed, Restarting..." >> /tmp/log/passwall.log
-				eval $(echo "nohup ${cmd} 2>&1 &") >/dev/null 2>&1 &
+			    # Make Sure Process not Started by Other Scripts
+		        sleep 10s
+				icount=$(pgrep -f "$(echo $cmd_check)" | wc -l)
+			    if [ $icount = 0 ]; then
+					echo "${cmd_check} Crashed, Restarting..." >> /tmp/log/passwall.log
+					eval $(echo "nohup ${cmd} 2>&1 &") >/dev/null 2>&1 &
+				fi
 			fi
 		fi
 	done
 	
 	rm -f $LOCK_FILE
-	sleep 30s
+	sleep 20s
 done
